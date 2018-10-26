@@ -48,7 +48,7 @@ void InsertFirst(List *L, infotype x) {
 			(*L).last = NewElmt;
 		}
         (*L).first = NewElmt;
-    }
+    } 
 }
 
 void InsertAfter(List *L, address *PredElmt, infotype x) {
@@ -69,18 +69,17 @@ void InsertAfter(List *L, address *PredElmt, infotype x) {
 }
 
 void InsertLast(List *L, infotype x) {
-    address NewElmt;
-    NewElmt = Allocation(x);
-    
-	if (NewElmt != NULL) {
-		NewElmt->prev = (*L).last;
-		if (!IsEmpty(*L)) {
-			((*L).last)->next = NewElmt;
-		} else {
-			(*L).first = NewElmt;
-		}
-		(*L).last = NewElmt;
-	}
+   /* 
+   		Buat Fungsi InsertLast
+		Menambahkan elemen data (info) setelah elemen/node akhir
+   */
+}
+
+void InsertAfterInfo(List *L, infotype y, infotype x){
+	/* 
+   		Buat Fungsi InsertAfterInfo
+		Menambahkan elemen data (info) setelah nilai tertentu
+   */
 }
 
 void DeleteFirst(List *L, infotype *hapus) {
@@ -116,22 +115,13 @@ void DeleteAfter(address pred, infotype *hapus) {
 }
 
 void DeleteLast(List *L, infotype *hapus) {
-    if (!IsEmpty(*L)) {
-        address temp;
-        temp = (*L).last;
-        *hapus = temp->info;
-		
-		if((*L).first == (*L).last) {
-			(*L).first = NULL;
-		} else {
-			(temp->prev)->next = NULL;
-		}
-		(*L).last = temp->prev;
-		temp->prev = NULL;
-		
-		Deallocation(temp);
-    }
+    /* 
+   		Buat Fungsi DeleteLast
+		Menghapus elemen data (info) terakhir
+   */
 }
+
+
 
 int main () {
 	List L1, L2;
@@ -140,7 +130,7 @@ int main () {
 	CreateEmpty(&L1);
 	int i;
 	
-	/* Isi 10 elemen ke L1 */
+	/* Isi 5 elemen ke L1 */
 	printf("Isi 5 elemen ke  L1 = \n");
 	for (i = 1; i <= 5; i++) {
 		scanf("%d",&x);
@@ -182,6 +172,12 @@ int main () {
 		i++;
 		P = P->next;
 	}
-    
+
+
+	/*
+		Menggunakan fungsi InsertLast, InsertAfterInfo, DeleteLast 
+		impelementasikan/gunakan fungsi-fungsi tersebut dalam fungsi main untuk memanipulasi data
+	*/
+
 	return 0;
 }
